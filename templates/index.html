@@ -6,7 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
+    {% block title %}
     <title>StartUP</title>
+    {% endblock %}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -62,6 +64,7 @@
   </nav>
 </header>
 
+{% block main %}
 <main>
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -202,7 +205,7 @@
     <p> StartUP @Pennsylvania State University &copy;</p>
   </footer>
 </main>
-
+{% endblock %}
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

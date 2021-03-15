@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>StartUP conatact page</title>
-    </head>
+{% extends "index.html" %}
 
-    <body>
-        <p>contact page</p>
-    </body>
-</html>
+{% block title %}
+<title>StartUP - Contact</title>
+{% endblock %}
+
+{% block main %}
+<main>
+    <!-- h2 does not show up -->
+    <h2>Team Member</h2>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <!-- <p class="float-end"><a href="#">Back to top</a></p> -->
+        <p> StartUP @Pennsylvania State University &copy;</p>
+    </footer>
+</main>
+{% endblock %}

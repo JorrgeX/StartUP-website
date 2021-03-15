@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>StartUP about page</title>
-    </head>
+{% extends "index.html" %}
 
-    <body>
-        <p>about page</p>
-    </body>
-</html>
+{% block title %}
+<title>StartUP - About</title>
+{% endblock %}
+
+{% block main %}
+<main>
+    <!-- h2 does not show up -->
+    <h2>- About -</h2> 
+    <div>
+        <h3>Who we are...</h3>
+        <p>StartUP plans to integrate artificial intelligence into a business platform by training algorithms through machine learning, 
+            powered by the cloud, to recognize and adapt to the needs of minority business owners with lower levels of income and education.</p>
+    </div>
+    <div>
+        <h3>What we do...</h3>
+        <p>Most startups fail. In fact, according to the Bureau of Labor Statistics, only 25% of startups survive long enough to see their 
+            15th year of operations. Why do startups fail in the first place? If we look at study results published by market research companies 
+            such as CB Insights, we can see that the number one reason for startup failure is "no market need" with "running out of cash" coming in second. 
+            This speaks volumes about how uninformed business owners are about the market they are entering. The bottom line isn't surprising. 
+            After all, most entrepreneurs are average adults who have full-time jobs and consequently, very limited time and capital. This problem 
+            only gets worse when we take a look at minorities in terms of entrepreneurship. Statistically, lower levels of income and education 
+            mean that it is generally harder for minorities to start successful businesses due to larger barriers of entry. StartUP aims to change 
+            all this and empower the entrepreneur with an A.I. powered application that provides data and resources to business owners all in one place, 
+            while simultaneously "holding the hand" of newer entrepreneurs as they setup their business. StartUP plans to integrate artificial intelligence 
+            into the platform by training algorithms through machine learning, powered by the cloud, to recognize and adapt to the needs of business owners. 
+            The secondary goal of StartUP is to level the playing field for minorities by providing ease of access to information in easy-to-consume portions. 
+            We see the future of StartUP as one in which the artificial intelligence on the platform can be utilized to connect entrepreneurs of similar 
+            niches together in order to encourage market collaboration while maintaining the competition.</p>
+    </div>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer class="container">
+    <!-- <p class="float-end"><a href="#">Back to top</a></p> -->
+        <p> StartUP @Pennsylvania State University &copy;</p>
+    </footer>
+</main>
+{% endblock %}
