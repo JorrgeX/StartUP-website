@@ -91,3 +91,8 @@ body {
     margin-top: 7rem;
   }
 }
+
+.banner {
+  background-image: url('static/img/startup.jng');
+  width: 100%;
+}
