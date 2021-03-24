@@ -92,7 +92,10 @@ body {
   }
 }
 
-.banner {
-  background-image: url('static/img/startup.jng');
-  width: 100%;
+#banner {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  position: center;
+  height: auto;
 }
