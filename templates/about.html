@@ -2,19 +2,38 @@
 
 {% block title %}
 <title>StartUP - About</title>
+
+<style>
+    .title {
+        text-align: center;
+    }
+
+    .divs {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    h2 {
+        padding-bottom: 15px;
+    }
+</style>
 {% endblock %}
 
 {% block main %}
 <main style="padding-top: 80px;">
     <div class="container">
-    <h2>- About -</h2> 
-        <div>
-            <h3>Who we are...</h3>
+    <div class="title divs">
+        <h1>- About -</h1> 
+    </div>
+        <div class="divs">
+            <h2 class="title">Who we are...</h2>
             <p>StartUP plans to integrate artificial intelligence into a business platform by training algorithms through machine learning, 
                 powered by the cloud, to recognize and adapt to the needs of minority business owners with lower levels of income and education.</p>
         </div>
-        <div>
-            <h3>What we do...</h3>
+        <div class="divs">
+            <h2 class="title">What we do...</h2>
             <p>Most startups fail. In fact, according to the Bureau of Labor Statistics, only 25% of startups survive long enough to see their 
                 15th year of operations. Why do startups fail in the first place? If we look at study results published by market research companies 
                 such as CB Insights, we can see that the number one reason for startup failure is "no market need" with "running out of cash" coming in second. 

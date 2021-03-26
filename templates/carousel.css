@@ -6,6 +6,7 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+  background-color: #fff;
 }
 
 
@@ -94,8 +95,6 @@ body {
 
 #banner {
   margin-left: 0;
-  margin-right: 0;
-  max-width: 100%;
-  position: center;
+  width: 100%;
   height: auto;
 }
