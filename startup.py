@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for,request
 
 app = Flask(__name__)
 
@@ -18,17 +18,19 @@ def contact():
 
 ## Code added here by @umar
 
-@app.route('/getresults/')
+@app.route('/getresults', methods=['POST'])
 def getresults():
   #print ('data submitted')
   #my_list = ['p', 'r', 'o', 'b', 'e']
   #my_tuple = (1, 2, 3)
+  zipcode_input = request.form['zipcode']
+  fund_desc = request.form['funding']
   import pandas as pd
   import numpy as np
   import regex as re
   df=pd.read_csv('Startup_Data.csv')
-  input = "Our company would like to build a brand new company in Melbourne,FL there is one office in 35242 and one office in 99301"
-  Zipcodes = re.findall('[0-9]+', input)
+  #zipcode_input = "Our company would like to build a brand new company in Melbourne,FL there is one office in 35242 and one office in 99301"
+  Zipcodes = re.findall('[0-9]+', zipcode_input)
   ###
   
   # if the zipcodes list is empty.. No user entry... Then set national zipcode as default
@@ -61,7 +63,7 @@ def getresults():
   ## #
   
   import sys
-  fund_desc = "my company would require a funding amount of $2000 to $500000"
+  #fund_desc = "my company would require a funding amount of $2000 to $500000"
 #fund_desc = "my company would require a funding amount of  "
   fund_req = re.findall('[0-9]+', fund_desc)
 
@@ -92,6 +94,7 @@ def getresults():
 # TODO we have to change the code which we return here... 
   # for testing pourpose returning the length.. @michael work on returning the data frame here
   return 'umar testing the code'
+
   #return render_template('contact.html')
   #return my_tuple
 def findZipCode(x):
