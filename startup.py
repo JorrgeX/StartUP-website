@@ -93,7 +93,7 @@ def getresults():
 
 # TODO we have to change the code which we return here... 
   # for testing pourpose returning the length.. @michael work on returning the data frame here
-  return 'umar testing the code'
+  return fund_filtered.to_dict(orient='dict')
 
   #return render_template('contact.html')
   #return my_tuple
