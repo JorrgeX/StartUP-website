@@ -18,9 +18,9 @@ def contact():
 
 ## Code added here by @umar
 
-@app.route('/my-link/')
-def my_link():
-  print ('data submitted')
+@app.route('/getresults/')
+def getresults():
+  #print ('data submitted')
   #my_list = ['p', 'r', 'o', 'b', 'e']
   #my_tuple = (1, 2, 3)
   import pandas as pd
@@ -86,11 +86,13 @@ def my_link():
   index = ((zip_filtered['max funding']) >= max_req)
   fund_filtered = zip_filtered[index]
   #fund_filtered      
-
+  #print(str(len(fund_filtered[0])))
+  #print(str(len(fund_filtered[0])))
 
 # TODO we have to change the code which we return here... 
   # for testing pourpose returning the length.. @michael work on returning the data frame here
-  return str(len(fund_filtered[0]))
+  return 'umar testing the code'
+  #return render_template('contact.html')
   #return my_tuple
 def findZipCode(x):
   print(df[df['Zip Code'].astype(str).str.contains(x)])
