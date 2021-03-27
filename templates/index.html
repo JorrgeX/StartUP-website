@@ -34,23 +34,40 @@
 
       #submission:hover {
         background-color: #f8c702;
-        color: #00c2cb;
-        border-color: #00c2cb;
       }
 
       .input-title {
         margin-top: 30px;
         margin-bottom: 8px;
+        padding-left: 20px;
       }
 
       .input-box {
         padding-top: 5px;
         padding-bottom: 5px;
+        padding-left: 20px;
       }
 
       .input-submit {
         margin-top: 40px;
         margin-bottom: 30px;
+        padding-left: 20px;
+      }
+
+      #zipcode {
+        background-image: url(/static/img/location.png);
+        background-position: 5px;
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        text-indent: 27px;
+      }
+
+      #funding {
+        background-image: url(/static/img/search.png);
+        background-position: 5px;
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        text-indent: 25px;
       }
     </style>
 
@@ -88,9 +105,13 @@
     <img id="banner" src="/static/img/banner.png">
   </div>
 
-  <div class="container" style="margin-top: 30px">
+  <div class="container" style="margin-top: 30px; border: 5px solid #f8c702;">
 
     <!-- main funtions -->
+
+    <div style="margin-top: 20px; padding-left: 20px">
+      <h2>Search for your resources</h2>
+    </div>
 
     <form action="{{ url_for('getresults') }}"  method="post">
       <div class="input-title">
@@ -106,16 +127,16 @@
         <br>
       </div>
       <div class="input-box">
-        <input size = "55" type="text" id="funding" name="funding" placeholder="Example: My busniess requires around $5000 to $15,000"> <!-- change from value to placeholder -->
+        <input size = "56" type="text" id="funding" name="funding" placeholder="Example: My busniess requires around $5000 to $15,000"> <!-- change from value to placeholder -->
         <br>
       </div>
       <div class="input-submit">
-      <input type="submit" value="Submit" id="submission">
+      <input type="submit" value="Search" id="submission" style="font-size: 16px; border-radius: 15px; width: 100px;">
       </div>
     </form>
   </div>
 
-  <div class="container marketing">
+  <div class="container marketing" style="margin-top: 30px;">
 
     <hr class="featurette-divider">
 
