@@ -24,7 +24,9 @@ def getresults():
   #my_list = ['p', 'r', 'o', 'b', 'e']
   #my_tuple = (1, 2, 3)
   zipcode_input = request.form['zipcode']
+  
   fund_desc = request.form['funding']
+  fund_desc = fund_desc.replace(',','') # in order to handle 5,000 as 5000.. other wises messesup!!
   import pandas as pd
   import numpy as np
   import regex as re
@@ -35,7 +37,7 @@ def getresults():
   
   # if the zipcodes list is empty.. No user entry... Then set national zipcode as default
   if (len(Zipcodes) < 1):
-      Zipcodes = ['00000'] # this zipcode for national/.. We have to update data as well.
+      Zipcodes = ['National'] # this zipcode for national/.. We have to update data as well.
       index = df['Zip Code'] == str(Zipcodes[0])
       zip_filtered = df[index]
   else:
@@ -57,6 +59,7 @@ def getresults():
     #print(Zipcodes[a])  
     #print(len(df[index]))
           temp = df[index]
+          #print('a')
           zip_filtered.append(temp)
   
   
@@ -70,12 +73,13 @@ def getresults():
   if len(fund_req) == 0:
       
       min_req = 0
-      max_req = sys.maxsize # if the user enters only details without requirements of fund
+      #max_req = sys.maxsize # if the user enters only details without requirements of fund
+      max_req = 100000
   elif len(fund_req) == 1:
-      min_req = int(fund_req[0]) # if enters only single amount.. considering that as min requiremenmts by default..
+      max_req = int(fund_req[0]) # if enters only single amount.. considering that as max requiremenmts by default..
 
   #TODO: we can try to handel this as special case in future.. using NLP to find either it is min or max requirement.
-      max_req = sys.maxsize
+      min_req = 0
   else:
       min_req = int(fund_req[0])
       max_req = int(fund_req[1])
@@ -94,6 +98,7 @@ def getresults():
 # TODO we have to change the code which we return here... 
   # for testing pourpose returning the length.. @michael work on returning the data frame here
   #return 'umar testing the code'
+  #result = fund_filtered.iloc[0]
   return fund_filtered.to_dict(orient='dict')
   #return render_template('contact.html')
   #return my_tuple
