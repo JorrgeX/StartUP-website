@@ -1,4 +1,5 @@
 pandas
 numpy
 scikit-learn
+regex
 Flask
