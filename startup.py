@@ -93,12 +93,12 @@ def getresults():
 
 # TODO we have to change the code which we return here... 
   # for testing pourpose returning the length.. @michael work on returning the data frame here
-  return fund_filtered.to_dict(orient='dict')
+  return fund_filtered.to_html(index_names='false', justify='center', render_links='true')
 
   #return render_template('contact.html')
   #return my_tuple
-def findZipCode(x):
-  print(df[df['Zip Code'].astype(str).str.contains(x)])
+#def findZipCode(x):
+  #print(df[df['Zip Code'].astype(str).str.contains(x)])
   
 def sortnotfoundzipCode(zipcode):
   if (zipcode>=99500 and zipcode<=99999):#Alaska
