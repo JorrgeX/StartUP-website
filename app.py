@@ -38,7 +38,7 @@ def getresults():
   # if the zipcodes list is empty.. No user entry... Then set national zipcode as default
   if (len(Zipcodes) < 1):
       Zipcodes = ['National'] # this zipcode for national/.. We have to update data as well.
-      index = df['Zip Code'] == str(Zipcodes[0])
+      index = df['Zip_Code'] == str(Zipcodes[0])
       zip_filtered = df[index]
   else:
       for a in range(len(Zipcodes)):
@@ -46,7 +46,7 @@ def getresults():
           Zipcodes[a] = sortnotfoundzipCode(int(Zipcodes[a]))
 
 
-  index = df['Zip Code'] == str(Zipcodes[0])
+  index = df['Zip_Code'] == str(Zipcodes[0])
   zip_filtered = df[index]
 #print('debugger')
 # if we have multiple zipcodes then append to the results
@@ -55,7 +55,7 @@ def getresults():
   #print('debugger') 
       for a in range(1,len(Zipcodes)):
     #print('debugger')
-          index = df['Zip Code'] == str(Zipcodes[a])
+          index = df['Zip_Code'] == str(Zipcodes[a])
     #print(Zipcodes[a])  
     #print(len(df[index]))
           temp = df[index]
@@ -89,7 +89,7 @@ def getresults():
 # this needs discussion
 # TODO: how to handle the cases here.. I think we have to ask for single input for funding only!!!
 # i am not sure.. As there is a lot of ambiguity if we ask for min and max funding requirements in filtering
-  index = ((zip_filtered['max funding']) >= max_req)
+  index = ((zip_filtered['max_funding']) >= max_req)
   fund_filtered = zip_filtered[index]
   #fund_filtered      
   #print(str(len(fund_filtered[0])))
@@ -102,26 +102,30 @@ def getresults():
   
   
   if('Minorities' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Minorities")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("Minorities")]
       
   if('Veterans' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Veterans")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("Veterans")]
       
   if('Disabilities' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Disabilities")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("Disabilities")]
       
   if('Women' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Women")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("Women")]
       
   if('American Indian' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("American Indian")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("American Indian")]
       
   if('Economically Disadvantaged' in fund_desc):
-      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Economically Disadvantaged")]
+      fund_filtered = fund_filtered[fund_filtered['Targeted_Applicants'].str.contains("Economically Disadvantaged")]
       
       
-      
-  return fund_filtered.to_html(index_names='false', justify='center', render_links='true')
+  #my_objects  = fund_filtered.to_dict(orient='dict')
+  #my_objects = [fund_filtered.columns.values.tolist()] + fund_filtered.values.tolist()
+  my_objects = fund_filtered.values.tolist()
+  #my_objects  = fund_filtered
+ #return fund_filtered.to_html(index_names='false', justify='center', render_links='true')
+  return render_template('results.html', my_objects=my_objects)
   #return render_template('contact.html')
   #return my_tuple
   

@@ -1,0 +1,142 @@
+{% extends "index.html" %}
+
+{% block title %}
+<title>StartUP - Results</title>
+
+<style>
+    h1 {
+        margin-top: 40px;
+        padding-top: 30px;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    table {
+        width: 100%;
+        margin-left: 4px;
+        padding-left:3px;
+        padding-right:3px;
+}
+
+    div {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left:3px;
+        padding-right:3px;
+}
+    
+    .ppl {
+        margin: 50px;
+        position: relative;
+        display: inline-block;
+        border: 3px double black;
+        padding: 15px;
+        padding-top: 30px;
+        text-align: center;
+        width: 350px;
+        height: 400px;
+    }
+
+    .info {
+        padding-top: 20px;
+        text-align: left;
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+     
+     .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }   
+
+
+    .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+
+
+</style>
+{% endblock %}
+
+
+{% block main %}
+<main style="padding-top: 80px;">
+
+    <div>
+  
+   <table class="styled-table">
+    <thead style="border: 3px solid black;">
+    <tr>
+        <th>Program</th>
+        <th>Organization</th>
+        <th>Min Funding</th>
+        <th>Max Funding</th>
+        <th>Program Eligibility</th>
+        <th>Use of Funds</th>
+        <th>Area</th>
+        <th>Website</th>
+        <th>Type of Fund</th>
+        <th>Targeted Applicants</th>
+        <th>Phone</th>
+        <th>Zip Code</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for ob in my_objects %}
+    <tr>
+        <td>{{ ob[0] }}</td>
+        <td>{{ ob[1] }}</td>
+        <td>{{ ob[2] }}</td>
+        <td>{{ ob[3] }}</td>
+        <td>{{ ob[4] }}</td>
+        <td>{{ ob[5] }}</td>
+        <td>{{ ob[6] }}</td>
+        <td>
+            <a href="{{ob[8]}}">{{ ob[7] }}</a>
+        </td>
+        <td>{{ ob[9] }}</td>
+        <td>{{ ob[10] }}</td>
+        <td>{{ ob[11] }}</td>
+        <td>{{ ob[12] }}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</div>
+    <!-- FOOTER -->
+    <footer class="container">
+        <p style="text-align: center;"> StartUP @Pennsylvania State University &copy;</p>
+    </footer>
+</main>
+{% endblock %}
