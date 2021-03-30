@@ -99,7 +99,29 @@ def getresults():
   # for testing pourpose returning the length.. @michael work on returning the data frame here
   #return 'umar testing the code'
   #result = fund_filtered.iloc[0]
-  return fund_filtered.to_dict(orient='dict')
+  
+  
+  if('Minorities' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Minorities")]
+      
+  if('Veterans' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Veterans")]
+      
+  if('Disabilities' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Disabilities")]
+      
+  if('Women' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Women")]
+      
+  if('American Indian' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("American Indian")]
+      
+  if('Economically Disadvantaged' in fund_desc):
+      fund_filtered = fund_filtered[fund_filtered['Targeted Applicants'].str.contains("Economically Disadvantaged")]
+      
+      
+      
+  return fund_filtered.to_html(index_names='false', justify='center', render_links='true')
   #return render_template('contact.html')
   #return my_tuple
   
